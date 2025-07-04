@@ -24,7 +24,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Log in to the GitHub Container Registry
-        uses: docker/login-action@v2
+      uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}

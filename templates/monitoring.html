@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monitoring</title>
+</head>
+<body>
+    <h1>Monitoring</h1>
+    {% for resource_id, alert_rules in alert_rules.items() %}
+        <h2>{{ resource_id }}</h2>
+        <ul>
+        {% for rule in alert_rules %}
+            <li>{{ rule.name }} - {{ rule.description }}</li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>

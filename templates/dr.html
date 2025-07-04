@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disaster Recovery</title>
+</head>
+<body>
+    <h1>Disaster Recovery</h1>
+    <h2>Virtual Machines</h2>
+    <ul>
+    {% for vm_id, vm_status in dr_status['virtual_machines'].items() %}
+        <li>{{ vm_status.name }} - Replication Enabled: {{ vm_status.replication_enabled }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Storage Accounts</h2>
+    <ul>
+    {% for sa_id, sa_status in dr_status['storage_accounts'].items() %}
+        <li>{{ sa_status.name }} - Redundancy: {{ sa_status.redundancy }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>SQL Databases</h2>
+    <ul>
+    {% for db_id, db_status in dr_status['sql_databases'].items() %}
+        <li>{{ db_status.name }} - Geo Backup Enabled: {{ db_status.geo_backup_enabled }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Virtual Networks</h2>
+    <ul>
+    {% for vnet_id, vnet_status in dr_status['virtual_networks'].items() %}
+        <li>{{ vnet_status.name }} - Secondary VNets: {{ vnet_status.secondary_vnets|join(', ') }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

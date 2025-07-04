@@ -7,7 +7,7 @@ azure-mgmt-managementgroups
 azure-mgmt-security
 azure-mgmt-advisor
 azure-mgmt-reservations
-azure-mgmt-policy
+azure-mgmt-resource-policy
 azure-mgmt-monitor
 azure-mgmt-avs
 azure-mgmt-trafficmanager

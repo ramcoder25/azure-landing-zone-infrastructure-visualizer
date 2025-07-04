@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landing Zone Selection</title>
+</head>
+<body>
+    <h1>Perform Landing Zone Scan?</h1>
+    <form action="{{ url_for('landing_zone_selection') }}" method="POST">
+        <input type="hidden" name="landing_zone_selected" value="true">
+        <button type="submit">Yes</button>
+    </form>
+    <form action="{{ url_for('landing_zone_selection') }}" method="POST">
+        <input type="hidden" name="landing_zone_selected" value="false">
+        <button type="submit">No</button>
+    </form>
+</body>
+</html>

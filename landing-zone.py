@@ -12,7 +12,7 @@ from azure.mgmt.managementgroups import ManagementGroupsAPI
 from azure.mgmt.security import SecurityCenter
 from azure.mgmt.advisor import AdvisorManagementClient
 from azure.mgmt.reservations import AzureReservationAPI
-from azure.mgmt.policy import PolicyClient
+from azure.mgmt.resource import PolicyClient
 from azure.mgmt.monitor import MonitorManagementClient
 from azure.mgmt.avs import AVSClient
 from azure.mgmt.trafficmanager import TrafficManagerManagementClient
@@ -426,9 +426,8 @@ def build_dependency_graph(resources, current_subscription_id):
         if sub_id_from_vnet in G:
             G.add_edge(sub_id_from_vnet, vnet_id, label='owns')
         else:
-            print(f'  Warning: V
-
-net {vnet.name} is in a subscription ({sub_id_from_vnet}) not added to graph.')
+            print((f'  Warning: V'
+f'net {vnet.name} is in a subscription ({sub_id_from_vnet}) not added to graph.'))
     for (pa_id, pa) in resources['policy_assignments'].items():
         scope_id = pa.scope
         if scope_id.startswith('/providers/Microsoft.Management/managementGroups/'):
